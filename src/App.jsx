@@ -1,7 +1,12 @@
 import "./App.css";
+import Header from "./componets/Header";
 
 function App() {
-  return <div>The initalization</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
