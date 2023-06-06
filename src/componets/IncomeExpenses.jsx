@@ -43,3 +43,5 @@ export const IncomeExpenses = () => {
     </div>
   );
 };
+
+export default IncomeExpenses;
