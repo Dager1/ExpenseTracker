@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { GlobalConstext } from "../Context/GlobalState";
 
 function Transaction({ transaction }) {
   //using the turnary operator to check the sign
@@ -7,11 +8,16 @@ function Transaction({ transaction }) {
     //using the turnary operator to change borader sign
     <div>
       <li className={transaction.amount < 0 ? "minus" : "plus"}>
-        {transaction.text}
+        {transaction.text}{" "}
         <span>
-          {sign}${Math.abs(transaction.amount)}
+          {sign}
+          {moneyFormatter(transaction.amount)}
         </span>
-        <button className="delet-btn">X</button>
+        <button
+          onClick={() => deleteTransaction(transaction.id)}
+          className="delete-btn">
+          x
+        </button>
       </li>
     </div>
   );
