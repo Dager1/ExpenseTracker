@@ -3,15 +3,15 @@ import { GlobalConstext } from "../Context/GlobalState";
 
 function IncomeExpenses() {
   const { transactions } = useContext(GlobalConstext);
+  const amounts = transactions.map((transaction) => transaction.amount);
+
   const income = amounts
     .filter((item) => item > 0)
-    .reduce((acc, item) => (acc += item), 0)
-    .toFixed(2);
+    .reduce((acc, item) => (acc += item), 0);
 
-  const expense = (
+  const expense =
     amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
-    -1
-  ).toFixed(2);
+    -1;
   return (
     <div className="inc-exp-container">
       <div>
